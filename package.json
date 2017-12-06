@@ -1,0 +1,79 @@
+{
+  "name": "history-query-enhancer",
+  "version": "0.0.1",
+  "description": "Enhance session history with query property",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "jsnext:main": "es/index.js",
+  "files": [
+    "dist",
+    "lib",
+    "es",
+    "src",
+    "index.d.ts"
+  ],
+  "scripts": {
+    "clean": "rimraf dist lib es coverage",
+    "lint": "tslint -p .",
+    "test": "jest --colors",
+    "test:coverage": "npm test -- --coverage",
+    "start": "tsc --outDir lib -w",
+    "build:es": "tsc --outDir es -d",
+    "build:commonjs": "tsc -m commonjs --outDir lib",
+    "build:dev-umd": "cross-env NODE_ENV=development rollup -c -i src/index.ts -o dist/history-query-enhancer.js",
+    "build:prod-umd": "cross-env NODE_ENV=production rollup -c -i src/index.ts -o dist/history-query-enhancer.min.js",
+    "build": "npm-run-all -p build:*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yenshih/history-query-enhancer.git"
+  },
+  "keywords": [
+    "history",
+    "query",
+    "enhancer"
+  ],
+  "authors": [
+    "Shi Yan <yenshih95@gmail.com> (https://github.com/yenshih)"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yenshih/history-query-enhancer/issues"
+  },
+  "npmName": "history-query-enhancer",
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "./node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ]
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jest": "^21.1.8",
+    "coveralls": "^3.0.0",
+    "cross-env": "^5.0.5",
+    "history": "^4.7.2",
+    "jest": "^21.2.1",
+    "npm-run-all": "^4.1.2",
+    "rollup": "^0.52.1",
+    "rollup-plugin-typescript": "^0.8.1",
+    "rollup-plugin-uglify": "^2.0.1",
+    "ts-jest": "^21.2.4",
+    "tslint": "^5.7.0",
+    "tslint-config-airbnb": "^5.4.2",
+    "typescript": "^2.6.2"
+  },
+  "peerDependencies": {
+    "history": "^4.0.0"
+  },
+  "browserify": {
+    "transform": [
+      "loose-envify"
+    ]
+  }
+}
