@@ -10,6 +10,7 @@
         "member-ordering": [false],
         "no-implicit-dependencies": [true, "dev"],
         "no-shadowed-variable": [false],
+        "no-submodule-imports": [true, "history"],
         "no-unused-expression": [true, "allow-fast-null-checks"],
         "object-literal-sort-keys": [false],
         "object-shorthand-properties-first": [false],

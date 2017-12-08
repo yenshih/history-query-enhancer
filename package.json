@@ -22,7 +22,8 @@
     "build:commonjs": "tsc -m commonjs --outDir lib",
     "build:dev-umd": "cross-env NODE_ENV=development rollup -c -i src/index.ts -o dist/history-query-enhancer.js",
     "build:prod-umd": "cross-env NODE_ENV=production rollup -c -i src/index.ts -o dist/history-query-enhancer.min.js",
-    "build": "npm-run-all -p build:*"
+    "build": "npm-run-all -p build:*",
+    "prepare": "npm run clean && npm run lint && npm run test && npm run build"
   },
   "repository": {
     "type": "git",
@@ -54,14 +55,19 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "@types/history": "^4.6.2",
     "@types/jest": "^21.1.8",
+    "@types/qs": "^6.5.1",
+    "@types/query-string": "^5.0.1",
     "coveralls": "^3.0.0",
     "cross-env": "^5.0.5",
     "history": "^4.7.2",
     "jest": "^21.2.1",
     "npm-run-all": "^4.1.2",
+    "qs": "^6.5.1",
+    "query-string": "^5.0.1",
     "rollup": "^0.52.1",
-    "rollup-plugin-typescript": "^0.8.1",
+    "rollup-plugin-typescript2": "^0.8.4",
     "rollup-plugin-uglify": "^2.0.1",
     "ts-jest": "^21.2.4",
     "tslint": "^5.7.0",

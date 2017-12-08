@@ -1,4 +1,4 @@
-import typescript from 'rollup-plugin-typescript';
+import typescript from 'rollup-plugin-typescript2';
 import uglify from 'rollup-plugin-uglify';
 
 const env = process.env.NODE_ENV;
@@ -10,7 +10,6 @@ const config = {
     },
     plugins: [
         typescript({
-            tsconfig: require('./tsconfig.json'),
             typescript: require('typescript'),
         }),
     ],
