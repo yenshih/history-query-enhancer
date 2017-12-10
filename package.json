@@ -51,7 +51,14 @@
       "ts",
       "tsx",
       "js"
-    ]
+    ],
+    "mapCoverage": true,
+    "coveragePathIgnorePatterns": [
+      "node_modules",
+      "test"
+    ],
+    "testURL": "https://localhost",
+    "silent": true
   },
   "dependencies": {},
   "devDependencies": {
@@ -66,6 +73,7 @@
     "npm-run-all": "^4.1.2",
     "qs": "^6.5.1",
     "query-string": "^5.0.1",
+    "redux": "^3.7.2",
     "rollup": "^0.52.1",
     "rollup-plugin-typescript2": "^0.8.4",
     "rollup-plugin-uglify": "^2.0.1",

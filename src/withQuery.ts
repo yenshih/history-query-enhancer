@@ -15,11 +15,11 @@ export const withQuery = ({ parse, stringify }: QueryTransformer) => (history: H
     });
 
     const diminish = <Q extends {}>({
-        query = {},
+        query,
         ...location,
     }: EnhancedLocationDescriptorObject<Q>): LocationDescriptorObject => ({
         ...location,
-        search: stringify(query),
+        search: query && typeof query === 'object' ? stringify(query) : location.search,
     });
 
     const enhancedHistory: EnhancedHistory = {

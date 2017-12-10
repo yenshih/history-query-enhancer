@@ -4,6 +4,7 @@
         "tslint-config-airbnb"
     ],
     "rules": {
+        "align": [false],
         "import-name": [false],
         "interface-name": [true, "never-prefix"],
         "max-line-length": [true, 120],
