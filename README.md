@@ -184,7 +184,7 @@ You can provide your own query transformer. For example:
 import queryString from 'query-string';
 
 const history = withQuery({
-    parse(search: string) {
+    parse(search) {
         return Object.entries(queryString.parse(search) || {}).reduce(
             (acc, [key, val]) => ({ ...acc, [key]: val && Number.isInteger(+val) ? +val : val }),
             {},
