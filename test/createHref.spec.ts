@@ -4,7 +4,7 @@ import createMemoryHistory from 'history/createMemoryHistory';
 import { compose } from 'redux';
 import queryString from 'query-string';
 
-import { withQuery, EnhancedHistory } from '../src';
+import withQuery, { EnhancedHistory } from '../src';
 
 const createEnhancedBrowserHistory = compose(withQuery(queryString), createBrowserHistory);
 const createEnhancedHashHistory = compose(withQuery(queryString), createHashHistory);

@@ -8,7 +8,7 @@ import {
     QueryTransformer,
 } from './';
 
-export const withQuery = ({ parse, stringify }: QueryTransformer) => (history: History) => {
+const withQuery = ({ parse, stringify }: QueryTransformer) => (history: History) => {
     const enhance = <Q extends {}>(location: Location): EnhancedLocation<Q> => ({
         ...location,
         query: parse(location.search),
@@ -71,3 +71,5 @@ export const withQuery = ({ parse, stringify }: QueryTransformer) => (history: H
 
     return enhancedHistory;
 };
+
+export default withQuery;

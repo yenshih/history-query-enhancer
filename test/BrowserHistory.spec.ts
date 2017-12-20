@@ -3,7 +3,7 @@ import { getConfirmation } from 'history/DOMUtils';
 import { compose } from 'redux';
 import queryString from 'query-string';
 
-import { withQuery, EnhancedHistory } from '../src';
+import withQuery, { EnhancedHistory } from '../src';
 
 import * as TestSequences from './helpers';
 
