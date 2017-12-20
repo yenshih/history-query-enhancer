@@ -35,12 +35,6 @@ import withQuery from 'history-query-enhancer';
 import queryString from 'query-string';
 
 const history = withQuery(queryString)(createBrowserHistory());
-
-// or with `compose` in `redux`
-
-import { compose } from 'redux';
-
-const history = compose(withQuery(queryString), createBrowserHistory)();
 ```
 
 ```js
@@ -182,7 +176,7 @@ declare module 'react-router-redux' {
 
 ### `withQuery`
 
-It receives a query transformer (such as [`query-string`](https://github.com/sindresorhus/query-string) or [`qs`](https://github.com/ljharb/qs)) and returns a history enhancer.
+It receives a query transformer (such as [`query-string`](https://github.com/sindresorhus/query-string) , [`querystring`](https://github.com/Gozala/querystring) or [`qs`](https://github.com/ljharb/qs)) and returns a history enhancer.
 
 You can provide your own query transformer. For example:
 
