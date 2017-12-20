@@ -18,7 +18,7 @@ describe('a hash history', () => {
         let history: EnhancedHistory;
 
         beforeEach(() => {
-            history = createHistory(undefined);
+            history = createHistory();
         });
 
         describe('listen', () => {

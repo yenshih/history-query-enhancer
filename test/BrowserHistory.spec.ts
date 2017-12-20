@@ -18,7 +18,7 @@ describe('a browser history', () => {
         let history: EnhancedHistory;
 
         beforeEach(() => {
-            history = createHistory(undefined);
+            history = createHistory();
         });
 
         describe('length', () => {

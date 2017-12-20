@@ -14,7 +14,7 @@ describe('a memory history', () => {
         let history: EnhancedHistory;
 
         beforeEach(() => {
-            history = createHistory(undefined);
+            history = createHistory();
         });
 
         describe('length', () => {

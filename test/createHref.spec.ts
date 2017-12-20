@@ -15,7 +15,7 @@ describe('a browser history', () => {
         let history: EnhancedHistory;
 
         beforeEach(() => {
-            history = createEnhancedBrowserHistory(undefined);
+            history = createEnhancedBrowserHistory();
         });
 
         it('knows how to create hrefs', () => {
