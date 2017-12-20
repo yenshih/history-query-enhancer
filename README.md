@@ -27,6 +27,8 @@ A query enhancer for [`history`](https://github.com/ReactTraining/history) v4, s
 
 ## Examples
 
+### Basic
+
 ```js
 import createBrowserHistory from 'history/createBrowserHistory';
 import withQuery from 'history-query-enhancer';
@@ -95,7 +97,7 @@ const App = () => (
 
 ```js
 class Home extends PureComponent {
-    public render() {
+    render() {
         const { location } = this.props;
         console.log(location.query); // `location` has `query` property
         return <Header />
@@ -107,7 +109,7 @@ class Home extends PureComponent {
 import { withRouter } from 'react-router';
 
 class Header extends PureComponent {
-    public render() {
+    render() {
         const { location } = this.props;
         console.log(location.query); // `location` has `query` property
         return /* */;
