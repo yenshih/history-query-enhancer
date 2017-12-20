@@ -42,19 +42,19 @@ console.log(history.location.query); // `location` has `query` property
 
 // /the/path?the=query
 history.push({
-    location: '/the/path',
+    pathname: '/the/path',
     query: { the: 'query' },
 });
 
 // /the/path?the=query
 history.replace({
-    location: '/the/path',
+    pathname: '/the/path',
     query: { the: 'query' },
 });
 
 // /the/path?another=query
 history.push({
-    location: '/the/path',
+    pathname: '/the/path',
     search: '?the=query',
     query: { another: 'query' },
 });
@@ -128,19 +128,19 @@ const App = () => (
 ```js
 // /the/path?the=query
 push({
-    location: '/the/path',
+    pathname: '/the/path',
     query: { the: 'query' },
 });
 
 // /the/path?the=query
 replace({
-    location: '/the/path',
+    pathname: '/the/path',
     query: { the: 'query' },
 });
 
 // /the/path?another=query
 push({
-    location: '/the/path',
+    pathname: '/the/path',
     search: '?the=query',
     query: { another: 'query' },
 });
