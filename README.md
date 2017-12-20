@@ -168,10 +168,9 @@ console.log(location.query); // `location` has `query` property
 ### Using with `react-router-redux` and `TypeScript`
 
 ```ts
-import {RouterAction} from 'react-router-redux';
-
-import {LocationState} from 'history';
-import {EnhancedLocationDescriptor} from 'history-query-enhancer';
+import { RouterAction } from 'react-router-redux';
+import { LocationState } from 'history';
+import { EnhancedLocationDescriptor } from 'history-query-enhancer';
 
 declare module 'react-router-redux' {
     export function push<Q extends {}>(location: EnhancedLocationDescriptor<Q>, state?: LocationState): RouterAction;
@@ -193,7 +192,7 @@ import queryString from 'query-string';
 const history = withQuery({
     parse(search: string) {
         return Object.entries(queryString.parse(search) || {}).reduce(
-            (acc, [key, val]) => ({...acc, [key]: val && Number.isInteger(+val) ? +val : val}),
+            (acc, [key, val]) => ({ ...acc, [key]: val && Number.isInteger(+val) ? +val : val }),
             {},
         );
     },
