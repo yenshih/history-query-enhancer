@@ -1,1 +1,4 @@
-export * from './es';
+import withQuery from './es';
+
+export default withQuery;
+
