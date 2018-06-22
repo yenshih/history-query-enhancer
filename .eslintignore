@@ -1,0 +1,6 @@
+coverage
+dist
+es
+lib
+node_modules
+*.d.ts

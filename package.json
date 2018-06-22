@@ -14,7 +14,7 @@
   ],
   "scripts": {
     "clean": "rimraf dist lib es coverage",
-    "lint": "tslint -p .",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix && tslint -p .",
     "test": "jest --colors",
     "test:coverage": "npm test -- --coverage",
     "start": "tsc --outDir lib -w",
@@ -42,45 +42,33 @@
     "url": "https://github.com/yenshih/history-query-enhancer/issues"
   },
   "npmName": "history-query-enhancer",
-  "jest": {
-    "transform": {
-      ".(ts|tsx)": "./node_modules/ts-jest/preprocessor.js"
-    },
-    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js"
-    ],
-    "mapCoverage": true,
-    "coveragePathIgnorePatterns": [
-      "node_modules",
-      "test"
-    ],
-    "testURL": "https://localhost",
-    "silent": true
-  },
   "dependencies": {},
   "devDependencies": {
     "@types/history": "^4.6.2",
-    "@types/jest": "^21.1.8",
+    "@types/jest": "^23.1.1",
     "@types/qs": "^6.5.1",
-    "@types/query-string": "^5.0.1",
-    "coveralls": "^3.0.0",
-    "cross-env": "^5.0.5",
+    "@types/query-string": "^6.1.0",
+    "@types/redux": "^3.6.0",
+    "coveralls": "^3.0.1",
+    "cross-env": "^5.2.0",
+    "eslint": "^4.19.1",
+    "eslint-plugin-import": "^2.12.0",
     "history": "^4.7.2",
-    "jest": "^22.0.3",
-    "npm-run-all": "^4.1.2",
-    "qs": "^6.5.1",
-    "query-string": "^5.0.1",
-    "redux": "^3.7.2",
-    "rollup": "^0.52.3",
-    "rollup-plugin-typescript2": "^0.9.0",
-    "rollup-plugin-uglify": "^2.0.1",
-    "ts-jest": "^22.0.0",
-    "tslint": "^5.7.0",
-    "tslint-config-airbnb": "^5.4.2",
-    "typescript": "^2.6.2"
+    "husky": "^0.14.3",
+    "jest": "^23.1.0",
+    "lint-staged": "^7.2.0",
+    "npm-run-all": "^4.1.3",
+    "qs": "^6.5.2",
+    "query-string": "^6.1.0",
+    "redux": "^4.0.0",
+    "rollup": "^0.61.1",
+    "rollup-plugin-typescript2": "^0.15.0",
+    "rollup-plugin-uglify": "^4.0.0",
+    "ts-jest": "^22.4.6",
+    "tslint": "^5.10.0",
+    "tslint-config-airbnb": "^5.9.2",
+    "typescript": "^2.9.2",
+    "typescript-eslint-parser": "^16.0.0"
   },
   "peerDependencies": {
     "history": "^4.0.0"

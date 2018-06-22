@@ -15,22 +15,27 @@ export default (history: EnhancedHistory, done: jest.DoneCallback) => {
             expect(action).toBe('PUSH');
             expect(location).toMatchObject({
                 pathname: '/home',
+                /* eslint-disable-next-line no-undefined */
                 state: undefined,
             });
 
             // We should see a warning message.
+            /* eslint-disable-next-line no-console */
             expect(console.error).toBeCalledWith(
                 'Hash history cannot push state; it is ignored',
             );
         },
     ];
 
-    const consoleError = console.error; // tslint:disable-line no-console
+    /* eslint-disable-next-line no-console */
+    const consoleError = console.error;
 
+    /* eslint-disable-next-line no-console */
     console.error = jest.fn();
 
     execSteps(steps, history, () => {
-        console.error = consoleError; // tslint:disable-line no-console
+        /* eslint-disable-next-line no-console */
+        console.error = consoleError;
         done();
     });
 };

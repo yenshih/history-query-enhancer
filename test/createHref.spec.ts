@@ -12,7 +12,7 @@ const createEnhancedMemoryHistory = compose(withQuery(queryString), createMemory
 
 describe('a browser history', () => {
     describe('with no basename', () => {
-        let history: EnhancedHistory;
+        let history: EnhancedHistory = null;
 
         beforeEach(() => {
             history = createEnhancedBrowserHistory();
@@ -47,7 +47,7 @@ describe('a browser history', () => {
     });
 
     describe('with a basename', () => {
-        let history: EnhancedHistory;
+        let history: EnhancedHistory = null;
 
         beforeEach(() => {
             history = createEnhancedBrowserHistory({ basename: '/the/base' });
@@ -82,7 +82,7 @@ describe('a browser history', () => {
     });
 
     describe('with a bad basename', () => {
-        let history: EnhancedHistory;
+        let history: EnhancedHistory = null;
 
         beforeEach(() => {
             history = createEnhancedBrowserHistory({ basename: '/the/bad/base/' });
@@ -117,7 +117,7 @@ describe('a browser history', () => {
     });
 
     describe('with a slash basename', () => {
-        let history: EnhancedHistory;
+        let history: EnhancedHistory = null;
 
         beforeEach(() => {
             history = createEnhancedBrowserHistory({ basename: '/' });
@@ -152,18 +152,18 @@ describe('a browser history', () => {
     });
 
     describe('encoding', () => {
-        let history: EnhancedHistory;
+        let history: EnhancedHistory = null;
 
         beforeEach(() => {
-            history = createEnhancedBrowserHistory(undefined);
+            history = createEnhancedBrowserHistory();
         });
 
         it('does not encode the generated path', () => {
-            // encoded
+            // Encoded
             const encodedHref = history.createHref({
                 pathname: '/%23abc',
             });
-            // unencoded
+            // Unencoded
             const unencodedHref = history.createHref({
                 pathname: '/#abc',
             });
@@ -176,10 +176,10 @@ describe('a browser history', () => {
 
 describe('a hash history', () => {
     describe('with default encoding', () => {
-        let history: EnhancedHistory;
+        let history: EnhancedHistory = null;
 
         beforeEach(() => {
-            history = createEnhancedHashHistory(undefined);
+            history = createEnhancedHashHistory();
         });
 
         it('knows how to create hrefs', () => {
@@ -211,7 +211,7 @@ describe('a hash history', () => {
     });
 
     describe('with hashType="noslash"', () => {
-        let history: EnhancedHistory;
+        let history: EnhancedHistory = null;
 
         beforeEach(() => {
             history = createEnhancedHashHistory({ hashType: 'noslash' });
@@ -246,7 +246,7 @@ describe('a hash history', () => {
     });
 
     describe('with hashType="hashbang"', () => {
-        let history: EnhancedHistory;
+        let history: EnhancedHistory = null;
 
         beforeEach(() => {
             history = createEnhancedHashHistory({ hashType: 'hashbang' });
@@ -281,7 +281,7 @@ describe('a hash history', () => {
     });
 
     describe('with a basename', () => {
-        let history: EnhancedHistory;
+        let history: EnhancedHistory = null;
 
         beforeEach(() => {
             history = createEnhancedHashHistory({ basename: '/the/base' });
@@ -313,7 +313,7 @@ describe('a hash history', () => {
     });
 
     describe('with a bad basename', () => {
-        let history: EnhancedHistory;
+        let history: EnhancedHistory = null;
 
         beforeEach(() => {
             history = createEnhancedHashHistory({ basename: '/the/bad/base/' });
@@ -345,7 +345,7 @@ describe('a hash history', () => {
     });
 
     describe('with a slash basename', () => {
-        let history: EnhancedHistory;
+        let history: EnhancedHistory = null;
 
         beforeEach(() => {
             history = createEnhancedHashHistory({ basename: '/' });
@@ -377,18 +377,18 @@ describe('a hash history', () => {
     });
 
     describe('encoding', () => {
-        let history: EnhancedHistory;
+        let history: EnhancedHistory = null;
 
         beforeEach(() => {
-            history = createEnhancedHashHistory(undefined);
+            history = createEnhancedHashHistory();
         });
 
         it('does not encode the generated path', () => {
-            // encoded
+            // Encoded
             const encodedHref = history.createHref({
                 pathname: '/%23abc',
             });
-            // unencoded
+            // Unencoded
             const unencodedHref = history.createHref({
                 pathname: '/#abc',
             });
@@ -400,10 +400,10 @@ describe('a hash history', () => {
 });
 
 describe('a memory history', () => {
-    let history: EnhancedHistory;
+    let history: EnhancedHistory = null;
 
     beforeEach(() => {
-        history = createEnhancedMemoryHistory(undefined);
+        history = createEnhancedMemoryHistory();
     });
 
     it('knows how to create hrefs', () => {
@@ -434,17 +434,18 @@ describe('a memory history', () => {
     });
 
     describe('encoding', () => {
-        let history: EnhancedHistory;
+        let history: EnhancedHistory = null;
+
         beforeEach(() => {
-            history = createEnhancedMemoryHistory(undefined);
+            history = createEnhancedMemoryHistory();
         });
 
         it('does not encode the generated path', () => {
-            // encoded
+            // Encoded
             const encodedHref = history.createHref({
                 pathname: '/%23abc',
             });
-            // unencoded
+            // Unencoded
             const unencodedHref = history.createHref({
                 pathname: '/#abc',
             });

@@ -1,26 +1,29 @@
-import typescript from 'rollup-plugin-typescript2';
-import uglify from 'rollup-plugin-uglify';
+import typescript from 'typescript';
+import typescriptPlugin from 'rollup-plugin-typescript2';
+import { uglify as uglifyPlugin } from 'rollup-plugin-uglify';
 
 const env = process.env.NODE_ENV;
 
 const config = {
-    name: 'HistoryQueryEnhancer',
     output: {
+        name: 'HistoryQueryEnhancer',
         format: 'umd',
     },
     plugins: [
-        typescript({
-            typescript: require('typescript'),
+        typescriptPlugin({
+            typescript,
         }),
     ],
 };
 
 if (env === 'production') {
     config.plugins.push(
-        uglify({
+        uglifyPlugin({
             compress: {
+                /* eslint-disable-next-line camelcase */
                 pure_getters: true,
                 unsafe: true,
+                /* eslint-disable-next-line camelcase */
                 unsafe_comps: true,
                 warnings: false,
             },

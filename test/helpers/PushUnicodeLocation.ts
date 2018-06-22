@@ -12,6 +12,7 @@ export default (history: EnhancedHistory, done: jest.DoneCallback) => {
             const pathname = '/歴史';
             const search = '?キー=値';
             const hash = '#ハッシュ';
+
             history.push(pathname + search + hash);
         },
         (location, action) => {

@@ -11,7 +11,7 @@ describe('a memory history', () => {
     const createHistory = compose(withQuery(queryString), createMemoryHistory);
 
     describe('by default', () => {
-        let history: EnhancedHistory;
+        let history: EnhancedHistory = null;
 
         beforeEach(() => {
             history = createHistory();
@@ -23,121 +23,121 @@ describe('a memory history', () => {
 
         describe('listen', () => {
             it('does not immediately call listeners', (done) => {
-                TestSequences.Listen(history, done);
+                TestSequences.listen(history, done);
             });
         });
 
         describe('the initial location', () => {
             it('has a key', (done) => {
-                TestSequences.InitialLocationHasKey(history, done);
+                TestSequences.initialLocationHasKey(history, done);
             });
         });
 
         describe('push a new path', () => {
             it('calls change listeners with the new location', (done) => {
-                TestSequences.PushNewLocation(history, done);
+                TestSequences.pushNewLocation(history, done);
             });
         });
 
         describe('push the same path', () => {
             it('calls change listeners with the new location', (done) => {
-                TestSequences.PushSamePath(history, done);
+                TestSequences.pushSamePath(history, done);
             });
         });
 
         describe('push state', () => {
             it('calls change listeners with the new location', (done) => {
-                TestSequences.PushState(history, done);
+                TestSequences.pushState(history, done);
             });
         });
 
         describe('push with no pathname', () => {
             it('calls change listeners with the normalized location', (done) => {
-                TestSequences.PushMissingPathname(history, done);
+                TestSequences.pushMissingPathname(history, done);
             });
         });
 
         describe('push with a relative pathname', () => {
             it('calls change listeners with the normalized location', (done) => {
-                TestSequences.PushRelativePathname(history, done);
+                TestSequences.pushRelativePathname(history, done);
             });
         });
 
         describe('push with a unicode path string', () => {
             it('creates a location with decoded properties', (done) => {
-                TestSequences.PushUnicodeLocation(history, done);
+                TestSequences.pushUnicodeLocation(history, done);
             });
         });
 
         describe('push with an encoded path string', () => {
             it('creates a location object with decoded pathname', (done) => {
-                TestSequences.PushEncodedLocation(history, done);
+                TestSequences.pushEncodedLocation(history, done);
             });
         });
 
         describe('push with an invalid path string (bad percent-encoding)', () => {
             it('throws an error', (done) => {
-                TestSequences.PushInvalidPathname(history, done);
+                TestSequences.pushInvalidPathname(history, done);
             });
         });
 
         describe('replace a new path', () => {
             it('calls change listeners with the new location', (done) => {
-                TestSequences.ReplaceNewLocation(history, done);
+                TestSequences.replaceNewLocation(history, done);
             });
         });
 
         describe('replace the same path', () => {
             it('calls change listeners with the new location', (done) => {
-                TestSequences.ReplaceSamePath(history, done);
+                TestSequences.replaceSamePath(history, done);
             });
         });
 
         describe('replace state', () => {
             it('calls change listeners with the new location', (done) => {
-                TestSequences.ReplaceState(history, done);
+                TestSequences.replaceState(history, done);
             });
         });
 
         describe('replace  with an invalid path string (bad percent-encoding)', () => {
             it('throws an error', (done) => {
-                TestSequences.ReplaceInvalidPathname(history, done);
+                TestSequences.replaceInvalidPathname(history, done);
             });
         });
 
         describe('location created by encoded and unencoded pathname', () => {
             it('produces the same location.pathname', (done) => {
-                TestSequences.LocationPathnameAlwaysDecoded(history, done);
+                TestSequences.locationPathnameAlwaysDecoded(history, done);
             });
         });
 
         describe('location created with encoded/unencoded reserved characters', () => {
             it('produces different location objects', (done) => {
-                TestSequences.EncodedReservedCharacters(history, done);
+                TestSequences.encodedReservedCharacters(history, done);
             });
         });
 
         describe('goBack', () => {
             it('calls change listeners with the previous location', (done) => {
-                TestSequences.GoBack(history, done);
+                TestSequences.goBack(history, done);
             });
         });
 
         describe('goForward', () => {
             it('calls change listeners with the next location', (done) => {
-                TestSequences.GoForward(history, done);
+                TestSequences.goForward(history, done);
             });
         });
 
         describe('block', () => {
             it('blocks all transitions', (done) => {
-                TestSequences.BlockEverything(history, done);
+                TestSequences.blockEverything(history, done);
             });
         });
 
         describe('block a POP without listening', () => {
             it('receives the next location and action as arguments', (done) => {
-                TestSequences.BlockPopWithoutListening(history, done);
+                TestSequences.blockPopWithoutListening(history, done);
             });
         });
     });
@@ -145,7 +145,7 @@ describe('a memory history', () => {
     describe('that denies all transitions', () => {
         const getUserConfirmation: typeof getConfirmation = (_, callback) => callback(false);
 
-        let history: EnhancedHistory;
+        let history: EnhancedHistory = null;
 
         beforeEach(() => {
             history = createHistory({
@@ -155,19 +155,19 @@ describe('a memory history', () => {
 
         describe('push', () => {
             it('does not update the location', (done) => {
-                TestSequences.DenyPush(history, done);
+                TestSequences.denyPush(history, done);
             });
         });
 
         describe('goBack', () => {
             it('does not update the location', (done) => {
-                TestSequences.DenyGoBack(history, done);
+                TestSequences.denyGoBack(history, done);
             });
         });
 
         describe('goForward', () => {
             it('does not update the location', (done) => {
-                TestSequences.DenyGoForward(history, done);
+                TestSequences.denyGoForward(history, done);
             });
         });
     });
@@ -175,7 +175,7 @@ describe('a memory history', () => {
     describe('a transition hook', () => {
         const getUserConfirmation: typeof getConfirmation = (_, callback) => callback(true);
 
-        let history: EnhancedHistory;
+        let history: EnhancedHistory = null;
 
         beforeEach(() => {
             history = createHistory({
@@ -184,11 +184,11 @@ describe('a memory history', () => {
         });
 
         it('receives the next location and action as arguments', (done) => {
-            TestSequences.TransitionHookArgs(history, done);
+            TestSequences.transitionHookArgs(history, done);
         });
 
         it('cancels the transition when it returns false', (done) => {
-            TestSequences.ReturnFalseTransitionHook(history, done);
+            TestSequences.returnFalseTransitionHook(history, done);
         });
     });
 });

@@ -5,8 +5,8 @@ import { EnhancedHistory, EnhancedLocationListener, EnhancedLocation } from '../
 import execSteps from './execSteps';
 
 export default (history: EnhancedHistory, done: jest.DoneCallback) => {
-    let hookLocation: EnhancedLocation<any>;
-    let hookAction: Action;
+    let hookLocation: EnhancedLocation<any> = null;
+    let hookAction: Action = null;
     const steps: ReadonlyArray<EnhancedLocationListener> = [
         (location) => {
             expect(location).toMatchObject({

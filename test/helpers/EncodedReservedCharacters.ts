@@ -5,8 +5,9 @@ import execSteps from './execSteps';
 export default (history: EnhancedHistory, done: jest.DoneCallback) => {
     const steps: ReadonlyArray<EnhancedLocationListener> = [
         () => {
-            // encoded string
+            // Encoded string
             const pathname = '/view/%23abc';
+
             history.replace(pathname);
         },
         (location) => {
@@ -14,16 +15,18 @@ export default (history: EnhancedHistory, done: jest.DoneCallback) => {
                 pathname: '/view/%23abc',
             });
 
-            // encoded object
+            // Encoded object
             const pathname = '/view/%23abc';
+
             history.replace({ pathname });
         },
         (location) => {
             expect(location).toMatchObject({
                 pathname: '/view/%23abc',
             });
-            // unencoded string
+            // Unencoded string
             const pathname = '/view/#abc';
+
             history.replace(pathname);
         },
         (location, _) => {

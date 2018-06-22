@@ -12,11 +12,13 @@ export default (history: EnhancedHistory, done: jest.DoneCallback) => {
         transitionHookWasCalled = true;
     });
 
-    // These timeouts are a hack to allow for the time it takes
-    // for histories to reflect the change in the URL. Normally
-    // we could just listen and avoid the waiting time. But this
-    // test is designed to test what happens when we don't listen(),
-    // so that's not an option here.
+    /*
+     * These timeouts are a hack to allow for the time it takes
+     * for histories to reflect the change in the URL. Normally
+     * we could just listen and avoid the waiting time. But this
+     * test is designed to test what happens when we don't listen(),
+     * so that's not an option here.
+     */
 
     // Allow some time for history to detect the PUSH.
     setTimeout(() => {

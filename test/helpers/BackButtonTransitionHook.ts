@@ -5,7 +5,7 @@ import { EnhancedHistory, EnhancedLocationListener } from '../../src';
 import execSteps from './execSteps';
 
 export default (history: EnhancedHistory, done: jest.DoneCallback) => {
-    let unblock: UnregisterCallback;
+    let unblock: UnregisterCallback = null;
     let hookWasCalled = false;
 
     const steps: ReadonlyArray<EnhancedLocationListener> = [

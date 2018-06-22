@@ -8,7 +8,7 @@ export default (
     done: (...args: any[]) => any,
 ) => {
     let index = 0;
-    let unlisten: UnregisterCallback;
+    let unlisten: UnregisterCallback = null;
     let cleandUp = false;
 
     const cleanup = (err?: Error) => {
@@ -22,19 +22,22 @@ export default (
     const execNextStep: EnhancedLocationListener = (location, action) => {
         try {
             const nextStep = steps[index];
+
             if (typeof nextStep !== 'function') {
                 throw new Error(`Test is missing step ${index}.`);
             }
-            index = index + 1;
+            index += 1;
             nextStep(location, action);
             index === steps.length && cleanup();
-        } catch (err) {
+        }
+        catch (err) {
             cleanup(err);
         }
     };
 
     if (!steps.length) {
         done();
+
         return;
     }
 

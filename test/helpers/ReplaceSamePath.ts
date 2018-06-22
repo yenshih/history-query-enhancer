@@ -3,7 +3,7 @@ import { EnhancedHistory, EnhancedLocation, EnhancedLocationListener } from '../
 import execSteps from './execSteps';
 
 export default (history: EnhancedHistory, done: jest.DoneCallback) => {
-    let prevLocation: EnhancedLocation<any>;
+    let prevLocation: EnhancedLocation<any> = null;
 
     const steps: ReadonlyArray<EnhancedLocationListener> = [
         (location) => {
