@@ -1,6 +1,6 @@
 {
   "name": "history-query-enhancer",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Enhance session history with query property",
   "main": "lib/index.js",
   "module": "es/index.js",
