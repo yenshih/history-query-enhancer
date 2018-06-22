@@ -353,5 +353,12 @@
             "import/extensions": "off",
             "import/no-unresolved": "off"
         }
+    }, {
+        "files": ["*.config.js", "webpack/*.js"],
+        "rules": {
+            "import/no-commonjs": "off",
+            "import/no-dynamic-require": "off",
+            "import/no-nodejs-modules": "off"
+        }
     }]
 }
