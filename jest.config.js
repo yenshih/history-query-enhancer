@@ -13,5 +13,5 @@ module.exports = {
         'test'
     ],
     testURL: 'https://localhost',
-    silent: true
-}
+    silent: true,
+};
