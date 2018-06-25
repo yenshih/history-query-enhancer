@@ -77,5 +77,6 @@
     "transform": [
       "loose-envify"
     ]
-  }
+  },
+  "sideEffects": false
 }
