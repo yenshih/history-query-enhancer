@@ -10,6 +10,7 @@
         "interface-name": [true, "never-prefix"],
         "max-line-length": [true, 120],
         "member-ordering": [false],
+        "member-access": [true, "no-public"],
         "no-boolean-literal-compare": [false],
         "no-implicit-dependencies": [true, "dev"],
         "no-shadowed-variable": [false],
