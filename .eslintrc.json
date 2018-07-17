@@ -316,18 +316,7 @@
                 {"target": "./src", "from": "./test"}
             ]
         }],
-        "import/no-unassigned-import": ["error", {
-            "allow": [
-                "babel-polyfill",
-                "moment/locale/zh-cn",
-                "froala-editor/js/froala_editor.pkgd.min",
-                "froala-editor/js/languages/zh_cn",
-                "froala-editor/css/froala_editor.pkgd.min.css",
-                "froala-editor/css/froala_style.min.css",
-                "font-awesome/css/font-awesome.css",
-                "common/styles/global.less"
-            ]
-        }],
+        "import/no-unassigned-import": ["error"],
         "import/no-unresolved": "error",
         "import/no-useless-path-segments": "error",
         "import/no-webpack-loader-syntax": "error",
@@ -354,7 +343,7 @@
             "import/no-unresolved": "off"
         }
     }, {
-        "files": ["*.config.js", "webpack/*.js"],
+        "files": ["*.config.js"],
         "rules": {
             "import/no-commonjs": "off",
             "import/no-dynamic-require": "off",
